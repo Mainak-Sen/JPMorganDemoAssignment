@@ -18,9 +18,9 @@ public class HomePage extends SeleniumBase {
         return new HomePage();
     }
 
-    public HomePage click_phone_name(String name) {
+    public AddToCartPage click_phone_name(String name) {
         click(findElementBy(Locators.valueOf("XPATH"), getPhoneNameXpath(name)));
-        return new HomePage();
+        return new AddToCartPage();
     }
 
 }

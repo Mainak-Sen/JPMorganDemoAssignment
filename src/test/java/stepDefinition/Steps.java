@@ -33,19 +33,13 @@ public class Steps extends SeleniumBase {
         homePage.click_phone_name(phoneNameToBeClicked);
     }
 
-   /* @Then("User lands on {string} page")
-    public void user_lands_on_page(String pageName) {
-        if (pageName.equalsIgnoreCase("STARTING POINT")) {
-            Assert.assertTrue(spp.is_StartingPoint_diplayed());
-        } else if (pageName.equalsIgnoreCase("PICKUP TIME")) {
-            Assert.assertTrue(pup.is_PickupPointdiplayed());
-        } else if (pageName.equalsIgnoreCase("DROP OFF TIME")) {
-            Assert.assertTrue(dop.is_DropOffTime_diplayed());
-        }
-
+    @Then("Add to cart button should be visible and product name should be {string}")
+    public void add_to_cart_button_should_be_visible_and_product_name_should_be(String productName) {
+        AddToCartPage addToCartPage = new AddToCartPage();
+        Assert.assertTrue(addToCartPage.is_add_to_cart_visible() && addToCartPage.is_desired_item_name_visible(productName));
     }
 
-    @When("User selects {string} as {string}")
+    /*@When("User selects {string} as {string}")
     public void user_selects_as(String select, String choice) {
 
         if (select.equalsIgnoreCase("pickup point")) {
@@ -73,4 +67,13 @@ public class Steps extends SeleniumBase {
             cp.get_max();
         }
     }*/
+
+/*    #    Then User lands on "PICKUP TIME" page
+#    When User selects "Start Date" as "tomorrow"
+            #    And User clicks on "NEXT"
+            #    Then User lands on "DROP OFF TIME" page
+#    When User selects "End Date" as "the last displayed one"
+            #    And User clicks on "DONE"
+            #    Then User gets to see list of available cars and count them.
+            #    And User finds the name of the car with "Highest" price.*/
 }
