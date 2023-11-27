@@ -12,7 +12,14 @@ public class Hooks extends SeleniumBase {
 
     @Before
     public void BeforeScenario() {
-        startApp("https://www.demoblaze.com/"); //enter url
+        //enter url
+        String appUrl = System.getProperty("applicationUrl");
+        String browser = System.getProperty("browser");
+        if (browser != null) {
+            startApp(browser, appUrl);
+        } else {
+            startApp(appUrl);
+        }
     }
 
     @After
